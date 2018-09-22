@@ -5,6 +5,7 @@
             
     $nome = $_GET["nome"];
     $preco = $_GET["preco"];
+    $conexao = criaConexao();
 
     if(insereProduto($nome, $preco, $conexao)){ ?>
         <p class="text-success">
