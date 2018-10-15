@@ -1,3 +1,3 @@
-<?php include './cabecalho.php' ?>
+<?php include 'templates/cabecalho.php' ?>
 <?= $msg ?>
-<?php include './rodape.php' ?>
+<?php include 'templates/rodape.php' ?>

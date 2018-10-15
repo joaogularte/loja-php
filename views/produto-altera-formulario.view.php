@@ -1,4 +1,4 @@
-<?php include 'cabecalho.php' ?>
+<?php include 'templates/cabecalho.php' ?>
 <h1>Alterar Produto</h1>
     <form action="altera-produto.php" method="POST">
         <input type="hidden" name="id" value="<?=$produto["id"]?>">
@@ -46,4 +46,4 @@
     </form>
 
 
-<?php include 'rodape.php' ?>
+<?php include 'templates/rodape.php' ?>

@@ -1,4 +1,4 @@
-<?php include 'cabecalho.php' ?>
+<?php include 'templates/cabecalho.php' ?>
 <h1>Formulario de produto</h1>
     <form action="adiciona-produto.php" method="POST">
         <table class="table">
@@ -37,4 +37,4 @@
             </tr>
         </table>
     </form>
-<?php include 'rodape.php' ?>
+<?php include 'templates/rodape.php' ?>

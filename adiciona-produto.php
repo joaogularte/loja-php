@@ -1,6 +1,6 @@
 <?php 
 
-    include 'conexao.php';
+    include 'models/conexao.php';
     include 'models/banco-produto.php';
             
     $nome = $_POST["nome"];

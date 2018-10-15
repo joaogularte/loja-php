@@ -1,7 +1,7 @@
 <?php 
     
     include 'models/banco-categoria.php';
-    include 'conexao.php';
+    include 'models/conexao.php';
 
     $conexao = criaConexao();
     $categorias = listaCategoria($conexao);

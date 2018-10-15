@@ -1,4 +1,4 @@
-<?php include 'cabecalho.php' ?>
+<?php include 'templates/cabecalho.php' ?>
 
 <?= $msg ?>
 <table class="table table-bordered">
@@ -21,4 +21,4 @@
 
 <!-- <p class="alert-success">Produto apagado com sucesso.</p> -->
 
-<?php include  'rodape.php' ?>
+<?php include  'templates/rodape.php' ?>

@@ -1,5 +1,5 @@
 <?php
-    include 'conexao.php';
+    include 'models/conexao.php';
     include 'models/banco-categoria.php';
     include 'models/banco-produto.php';
 
