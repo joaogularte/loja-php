@@ -1,12 +1,13 @@
 <?php
-    include("cabecalho.php");
     include("conexao.php");
-    include("banco-produto.php");
+    include("models/banco-produto.php");
 
     $id = $_POST["id"];
     $conexao = criaConexao();
     $result = removeProduto($conexao, $id);
-    header("Location: produto-lista.php?removido=true");
-    exit();
+    if($result){
+        $msg = "<p class=".'"alert-success"'.">Produto apagado com sucesso.</p>";
+    }
+
+    require 'views/produto-lista.view.php'
 ?>
-<?php include("rodape.php");?>

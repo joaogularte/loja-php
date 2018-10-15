@@ -1,7 +1,7 @@
 <?php 
-    include 'cabecalho.php';
+
     include 'conexao.php';
-    include 'banco-produto.php';
+    include 'models/banco-produto.php';
             
     $nome = $_POST["nome"];
     $preco = $_POST["preco"];
@@ -12,20 +12,18 @@
     }else{
         $usado = "false";
     }
+
     $conexao = criaConexao();
+    $insercao = insereProduto($nome, $preco, $descricao, $categoria, $usado, $conexao); 
 
-    if(insereProduto($nome, $preco, $descricao, $categoria, $usado, $conexao)){ ?>
-        <p class="text-success">
-            Produto: <?php echo $nome; ?> - R$ <?php echo $preco; ?> foi adicionado
-        </p>        
-    <?php }else{ 
-        $msg = mysqli_error($conexao);    
-    ?>
-        <p class="text-danger">O produto <?php echo $nome; ?> não foi adicionado: <?= $msg?></p>
-    <?php }
-    
+    if($insercao){
+        $msg = "<p class=".'"text-success"'.">Produto: {$nome} - R$ {$preco} foi adicionado</p>";
+    }else{
+        $msg = "<p class=".'"text-danger"'.">O produto {$nome} nao foi adicionado</p>";
+    }
+
     mysqli_close($conexao);
-    ?>
 
-
-<?php include("rodape.php");?>
+    require 'views/adiciona-produto.view.php';
+    
+?>

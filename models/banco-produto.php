@@ -12,14 +12,24 @@
         return $produtos;
     }
 
+    function listaProduto($id, $conexao){
+        $resultado = mysqli_query($conexao, "select * from produtos where id = {$id}");
+        $produto = mysqli_fetch_assoc($resultado);
+        return $produto;
+    }
+
     function insereProduto($nome, $preco, $descricao, $categoria, $usado, $conexao){
         $query = "insert into produtos values (default, '{$nome}', {$preco}, '{$descricao}', '{$categoria}', {$usado});";
-        echo $query;
         return mysqli_query($conexao, $query);
     }
 
     function removeProduto($conexao, $id){
         $query = "delete from produtos where id={$id}";
+        return mysqli_query($conexao, $query);
+    }
+
+    function alteraProduto($id, $nome, $preco, $descricao, $usado, $conexao){
+        $query = "update produtos set nome='{$nome}', preco={$preco}, descricao='{$descricao}', usado={$usado} where id={$id} ";
         return mysqli_query($conexao, $query);
     }
 ?>
