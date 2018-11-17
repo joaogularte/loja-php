@@ -12,7 +12,6 @@
     }else{
         $usado = "false";
     }
-
     $conexao = criaConexao();
     $insercao = insereProduto($nome, $preco, $descricao, $categoria, $usado, $conexao); 
 
