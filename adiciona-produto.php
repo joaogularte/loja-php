@@ -2,7 +2,10 @@
 
     include 'models/conexao.php';
     include 'models/banco-produto.php';
-            
+    include 'logica-usuario.php';          
+    
+    verificaUsuario();
+
     $nome = $_POST["nome"];
     $preco = $_POST["preco"];
     $descricao = $_POST["descricao"];
