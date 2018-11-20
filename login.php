@@ -10,9 +10,11 @@
 
     if($usuario){
         logaUsuario($email);
-        header("Location: index.php?login=1");
+        $_SESSION["login"] = "Logado com sucesso";
+        header("Location: index.php");
     }else{
-        header("Location: index.php?login=0");
+        $_SESSION["error"] = "Usuario ou senha invalido";
+        header("Location: index.php");
     }
     die();
 ?>

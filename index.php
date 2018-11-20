@@ -2,18 +2,24 @@
 <?php include 'templates/cabecalho.php';
       include 'logica-usuario.php';
 ?>
-<?php if(isset($_GET["login"]) && $_GET["login"] == true):?>
-    <p class="alert-success">Logado com sucesso</p>
+<?php if(isset($_SESSION["login"])):?>
+    <p class="alert-success"><?=$_SESSION["login"]?></p>
 <?php endif;?>
-<?php if(isset($_GET["logout"]) && $_GET["logout"] == true):?>
-    <p class="alert-success">Deslogado com sucesso</p>
-<?php endif;?>
-<?php if(isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"] == true):?>
-    <p class="alert-danger">Você não tem acesso!</p>
-<?php endif;?>
-<?php if(isset($_GET["login"]) && $_GET["login"]==false): ?>
-    <p class="alert-danger">Usuario ou senha invalido</p>
-<?php endif; ?>
+<?php if(isset($_SESSION["logout"])):?>
+    <p class="alert-success"><?=$_SESSION["logout"]?></p>
+<?php
+    unset($_SESSION["logout"]);
+    endif;?>
+<?php if(isset($_SESSION["danger"])):?>
+    <p class="alert-danger"><?=$_SESSION["danger"]?></p>
+<?php 
+    unset($_SESSION["danger"]);
+    endif;?>
+<?php if(isset($_SESSION["error"])): ?>
+    <p class="alert-danger"><?=$_SESSION["error"]?></p>
+<?php 
+    unsset($_SESSION["error"]);    
+    endif; ?>
 
     <h1> Bem vindo!</h1>
 <?php if(usuarioEstaLogado()):?>
