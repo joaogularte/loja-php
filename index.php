@@ -18,9 +18,8 @@
 <?php if(isset($_SESSION["error"])): ?>
     <p class="alert-danger"><?=$_SESSION["error"]?></p>
 <?php 
-    unsset($_SESSION["error"]);    
+    unset($_SESSION["error"]);    
     endif; ?>
-
     <h1> Bem vindo!</h1>
 <?php if(usuarioEstaLogado()):?>
     <p class="alert-success">Você esta logado como <?=usuarioLogado()?>. <a href="logout.php">Deslogar</a></p>
