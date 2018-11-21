@@ -10,10 +10,10 @@
 
     if($usuario){
         logaUsuario($email);
-        $_SESSION["login"] = "Logado com sucesso";
+        $_SESSION["success"] = "Logado com sucesso";
         header("Location: index.php");
     }else{
-        $_SESSION["error"] = "Usuario ou senha invalido";
+        $_SESSION["danger"] = "Usuario ou senha invalido";
         header("Location: index.php");
     }
     die();

@@ -1,25 +1,13 @@
 
 <?php include 'templates/cabecalho.php';
       include 'logica-usuario.php';
+      include 'mostra-alerta.php';
+
+
+      mostraAlerta("success");
+      mostraAlerta("danger");
 ?>
-<?php if(isset($_SESSION["login"])):?>
-    <p class="alert-success"><?=$_SESSION["login"]?></p>
-<?php endif;?>
-<?php if(isset($_SESSION["logout"])):?>
-    <p class="alert-success"><?=$_SESSION["logout"]?></p>
-<?php
-    unset($_SESSION["logout"]);
-    endif;?>
-<?php if(isset($_SESSION["danger"])):?>
-    <p class="alert-danger"><?=$_SESSION["danger"]?></p>
-<?php 
-    unset($_SESSION["danger"]);
-    endif;?>
-<?php if(isset($_SESSION["error"])): ?>
-    <p class="alert-danger"><?=$_SESSION["error"]?></p>
-<?php 
-    unset($_SESSION["error"]);    
-    endif; ?>
+
     <h1> Bem vindo!</h1>
 <?php if(usuarioEstaLogado()):?>
     <p class="alert-success">Você esta logado como <?=usuarioLogado()?>. <a href="logout.php">Deslogar</a></p>
