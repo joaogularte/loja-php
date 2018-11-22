@@ -9,7 +9,6 @@
             array_push($categorias, $categoria);
             $categoria = mysqli_fetch_assoc($resultado);
         }
-        
         return $categorias;
     }
 

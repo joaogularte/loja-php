@@ -8,6 +8,7 @@
     if($result){
         $msg = "<p class=".'"alert-success"'.">Produto apagado com sucesso.</p>";
     }
-
+    mysqli_close($conexao);
+    
     require 'views/produto-lista.view.php'
 ?>

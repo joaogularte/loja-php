@@ -9,6 +9,7 @@
     $categorias = listaCategoria($conexao);
     $produto = listaProduto($id, $conexao);
     $usado = $produto["usado"] ? "checked='checked'" : "";
+    mysqli_close($conexao);
 
     require 'views/produto-altera-formulario.view.php';
 ?>

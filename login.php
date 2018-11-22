@@ -16,5 +16,6 @@
         $_SESSION["danger"] = "Usuario ou senha invalido";
         header("Location: index.php");
     }
+    mysqli_close($conexao);
     die();
 ?>
