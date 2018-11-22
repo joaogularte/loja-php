@@ -8,7 +8,12 @@
 
     $conexao = criaConexao();
     $categorias = listaCategoria($conexao);
-
+    $produto = [
+        "nome" => "",
+        "preco" => "",
+        "descricao" => ""
+    ];
+    $usado = "";
     mysqli_close($conexao);
 
     require 'views/produto-formulario.view.php'
