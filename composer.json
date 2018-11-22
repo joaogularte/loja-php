@@ -1,0 +1,12 @@
+{
+    "name": "jgularte/loja-php",
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "joaogularte",
+            "email": "jov96@hotmail.com"
+        }
+    ]
+}
