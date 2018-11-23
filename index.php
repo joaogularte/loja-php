@@ -17,7 +17,7 @@
     <form action="login.php" method="POST">
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Senha</label>
