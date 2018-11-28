@@ -3,13 +3,11 @@
     use PHPMailer\PHPMailer\{PHPMailer, Exception};
 
     require 'vendor/autoload.php';
+    require 'conf.php';
 
     //$nome = $_POST["nome"];
     //$email = $_POST["email"];
     //$msg = $_POST["mensagem"];
-    
-
-
     
     $mail = new PHPMailer();
     $mail->SMTPDebug = 2;
@@ -18,7 +16,7 @@
     $mail->SMTPSecure = 'tls';
     $mail->SMTPAuth = true;
     $mail->Port = 587;
-    $mail->Username = '';
-    $mail->Passwd = '';
+    $mail->Username = $email;
+    $mail->Passwd = $password;
 
 ?>
