@@ -3,25 +3,32 @@
     include 'models/conexao.php';
     include 'models/banco-produto.php';
     include 'logica-usuario.php';          
-    
+    include 'classes/Produto.php';
+    include 'classes/Categoria.php';
+
     verificaUsuario();
 
-    $nome = $_POST["nome"];
-    $preco = $_POST["preco"];
-    $descricao = $_POST["descricao"];
-    $categoria = $_POST["categoria_id"];
+    $produto = new Produto();
+    $categoria = new Categoria();
+    $categoria->id = $_POST["categoria_id"];
+
+    $produto->nome = $_POST["nome"];
+    $produto->preco = $_POST["preco"];
+    $produto->descricao = $_POST["descricao"];
+    $produto->categoria = $categoria;
+    
     if($_POST["usado"]){
-        $usado = "true";
+        $produto->usado = "true";
     }else{
-        $usado = "false";
+        $produto->usado = "false";
     }
     $conexao = criaConexao();
-    $insercao = insereProduto($nome, $preco, $descricao, $categoria, $usado, $conexao); 
+    $insercao = insereProduto($produto, $conexao); 
 
     if($insercao){
-        $msg = "<p class=".'"text-success"'.">Produto: {$nome} - R$ {$preco} foi adicionado</p>";
+        $msg = "<p class=".'"text-success"'.">Produto: {$produto->nome} - R$ {$produto->preco} foi adicionado</p>";
     }else{
-        $msg = "<p class=".'"text-danger"'.">O produto {$nome} nao foi adicionado</p>";
+        $msg = "<p class=".'"text-danger"'.">O produto {$produto->nome} nao foi adicionado</p>";
     }
 
     mysqli_close($conexao);

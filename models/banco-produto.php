@@ -1,12 +1,26 @@
 <?php
-  
+    include 'classes/Produto.php';
+    include 'classes/Categoria.php';
+
     function listaProdutos($conexao){
         $produtos = array();
-        $resultado = mysqli_query($conexao, "select produtos.*, categorias.nome as categoria_nome from produtos join categorias on produtos.categoria_id = categorias.id");
-        $produto = mysqli_fetch_assoc($resultado);
-        while($produto){
+        $resultado = mysqli_query($conexao, "select produtos.*, categorias.nome as categoria_nome from produtos join categorias on produtos.categoria_id = categorias.id");    
+        $produto_array = mysqli_fetch_assoc($resultado);
+        while($produto_array){
+
+            $produto = new Produto();
+            $categoria = new Categoria();
+            
+            $categoria->nome = $produto_array['categoria_nome'];
+
+            $produto->nome = $produto_array['nome'];
+            $produto->preco = $produto_array['preco'];
+            $produto->descricao = $produto_array['descricao'];
+            $produto->categoria = $categoria;
+            $produto->usado = $produto_array['usado'];
+            
             array_push($produtos, $produto);
-            $produto = mysqli_fetch_assoc($resultado);
+            $produto_array = mysqli_fetch_assoc($resultado);
         }
 
         return $produtos;
@@ -18,8 +32,8 @@
         return $produto;
     }
 
-    function insereProduto($nome, $preco, $descricao, $categoria, $usado, $conexao){
-        $query = "insert into produtos values (default, '{$nome}', {$preco}, '{$descricao}', '{$categoria}', {$usado});";
+    function insereProduto(Produto $produto, $conexao){
+        $query = "insert into produtos values (default, '{$produto->nome}', {$produto->preco}, '{$produto->descricao}', '{$produto->categoria_id}', {$produto->usado});";
         return mysqli_query($conexao, $query);
     }
 
@@ -28,8 +42,8 @@
         return mysqli_query($conexao, $query);
     }
 
-    function alteraProduto($id, $nome, $preco, $descricao, $usado, $conexao){
-        $query = "update produtos set nome='{$nome}', preco={$preco}, descricao='{$descricao}', usado={$usado} where id={$id} ";
+    function alteraProduto(Produto $produto, $conexao){
+        $query = "update produtos set nome='{$produto->nome}', preco={$produto->preco}, descricao='{$produto->descricao}', usado={$produto->usado} where id={$produto->id} ";
         return mysqli_query($conexao, $query);
     }
 ?>
