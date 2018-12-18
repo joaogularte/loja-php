@@ -12,6 +12,7 @@
     $produto->nome = $_POST['nome'];
     $produto->preco = $_POST['preco'];
     $produto->descricao = $_POST['descricao'];
+    $produto->categoria = $_POST['categoria_id'];
     if($_POST['usado']){
         $produto->usado = "true";
     }else{

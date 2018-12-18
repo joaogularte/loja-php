@@ -1,7 +1,7 @@
 <?php include 'templates/cabecalho.php' ?>
 <h1>Alterar Produto</h1>
     <form action="altera-produto.php" method="POST">
-        <input type="hidden" name="id" value="<?=$produto["id"]?>">
+        <input type="hidden" name="id" value="<?=$produto->id?>">
         <table class="table">
             <?php include 'views/formulario-base.view.php' ?>
             <tr>
