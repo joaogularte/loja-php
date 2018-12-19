@@ -1,6 +1,6 @@
 <?php
     include 'classes/Produto.php';
-    include 'classes/Categoria.php';
+    include_once 'classes/Categoria.php';
 
     function listaProdutos($conexao){
         $produtos = array();
@@ -34,8 +34,6 @@
         
         $resultado = mysqli_query($conexao, "select * from produtos where id = {$id}");
         $produto_array = mysqli_fetch_assoc($resultado);
-        var_dump($produto_array);
-        die();
         $produto->id = $produto_array['id'];
         $produto->nome = $produto_array['nome'];
         $produto->preco = $produto_array['preco'];
@@ -46,7 +44,7 @@
     }
 
     function insereProduto(Produto $produto, $conexao){
-        $query = "insert into produtos values (default, '{$produto->nome}', {$produto->preco}, '{$produto->descricao}', '{$produto->categoria_id}', {$produto->usado});";
+        $query = "insert into produtos values (default, '{$produto->nome}', {$produto->preco}, '{$produto->descricao}', '{$produto->categoria->id}', {$produto->usado});";
         return mysqli_query($conexao, $query);
     }
 

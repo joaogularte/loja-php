@@ -1,7 +1,7 @@
 <?php 
     include 'models/conexao.php';
     include 'models/banco-produto.php';
-
+    
     $conexao = criaConexao();
     $produtosLoja = listaProdutos($conexao);
 

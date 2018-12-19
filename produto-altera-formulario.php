@@ -1,11 +1,11 @@
-<?php
+<?php  
+
     include 'models/conexao.php';
     include 'models/banco-categoria.php';
     include 'models/banco-produto.php';
-
+    
+    
     $id = $_GET["id"];
-    echo 1;
-    die();
     settype($id,"integer");
     $conexao = criaConexao();
     $categorias = listaCategoria($conexao);
