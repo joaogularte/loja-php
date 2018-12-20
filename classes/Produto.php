@@ -8,8 +8,8 @@
         public $categoria;
         public $usado;
     
-        public function precoComDesconto(){
-            $this->preco -= $this->preco * 0.1;
+        public function precoComDesconto($valor = 0.1){
+            $this->preco -= $this->preco * $valor;
             return $this->preco;
         }
     }
