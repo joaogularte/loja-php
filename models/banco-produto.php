@@ -1,5 +1,5 @@
 <?php
-    include 'classes/Produto.php';
+    include_once 'classes/Produto.php';
     include_once 'classes/Categoria.php';
 
     function listaProdutos($conexao){

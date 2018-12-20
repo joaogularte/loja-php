@@ -1,9 +1,9 @@
 <?php
     
-    include 'models/conexao.php';
-    include 'models/banco-produto.php';
-    include 'classes/Produto.php';
-    include 'classes/Categoria.php';
+    include_once 'models/conexao.php';
+    include_once 'models/banco-produto.php';
+    include_once 'classes/Produto.php';
+    include_once 'classes/Categoria.php';
 
     $produto = new Produto();
 
