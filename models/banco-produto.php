@@ -12,14 +12,14 @@
             $categoria = new Categoria();
             
             
-            $produto->id = $produto_array['id'];
-            $produto->nome = $produto_array['nome'];
-            $produto->preco = $produto_array['preco'];
-            $produto->descricao = $produto_array['descricao'];
-            $produto->categoria = $categoria;
-            $produto->usado = $produto_array['usado'];
+            $produto->setId($produto_array['id']);
+            $produto->setNome($produto_array['nome']);
+            $produto->setPreco($produto_array['preco']);
+            $produto->setDescricao($produto_array['descricao']);
+            $produto->setCategoria($categoria);
+            $produto->setUsado($produto_array['usado']);
             
-            $categoria->nome = $produto_array['categoria_nome'];
+            $categoria->setNome($produto_array['categoria_nome']);
             
             array_push($produtos, $produto);
             $produto_array = mysqli_fetch_assoc($resultado);

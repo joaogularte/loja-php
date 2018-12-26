@@ -2,6 +2,14 @@
 
     class Categoria{
         public $id;
-        public $nome;
+        private $nome;
+
+        public function setNome($nome){
+            $this->nome = $nome;
+        }
+
+        public function getNome(){
+            return $this->nome;
+        }
     }
 ?>
